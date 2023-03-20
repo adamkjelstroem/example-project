@@ -1,0 +1,18 @@
+let fun foo() = 
+            let val x = receive [
+                    hn (4, x, p) => send(p, x(10)),
+                    hn (3, x) => print("special case", x),
+                    hn x => print("generic receive", x)
+
+            ] in foo ()
+            end
+
+val pid = spawn foo in 
+    send (pid, "hello");
+    send (pid, "hello2");
+    send (pid, (3, ("a tuple",123)));
+    send (pid, (4, fn x => x + 20, self()));
+    receive [ hn x => print("got output", x)]
+
+
+end

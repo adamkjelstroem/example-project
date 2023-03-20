@@ -1,0 +1,5 @@
+let val pid = whereis ("Qmds4sn1FREd4jENTW81dMGVy9iDz1BCjFj7Qohff2Na1F", "aslansprocess")
+in 
+    print pid;
+    send(pid, (789, "123"))
+end
